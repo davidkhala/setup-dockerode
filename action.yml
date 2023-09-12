@@ -12,7 +12,5 @@ runs:
     - uses: ScribeMD/rootless-docker@main
       name: Use Docker in rootless mode.
     - uses: actions/checkout@main
-    - run: npm install
-      shell: bash
     
     

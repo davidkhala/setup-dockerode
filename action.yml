@@ -13,5 +13,6 @@ runs:
       name: Use Docker in rootless mode.
     - uses: actions/checkout@main
     - run: npm install
+      shell: bash
     
     

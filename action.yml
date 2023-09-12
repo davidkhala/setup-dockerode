@@ -1,4 +1,6 @@
-
+branding:
+  icon: 'anchor'
+  color: 'green'
 name: "setup dockerode"
 description: setup Docker and Nodejs, e.g. as a foundation of github.com/apocas/dockerode.
 runs:

@@ -1,0 +1,14 @@
+name: "setup dockerode"
+description: setup Docker and Nodejs, e.g. as a foundation of github.com/apocas/dockerode.
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-node@main
+      with:
+        check-latest: true
+    - uses: ScribeMD/rootless-docker@main
+      name: Use Docker in rootless mode.
+    - uses: actions/checkout@main
+    - run: npm install
+    
+    

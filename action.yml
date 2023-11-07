@@ -1,14 +1,16 @@
+
 branding:
   icon: 'anchor'
   color: 'green'
-name: "setup dockerode"
-description: setup Docker and Nodejs, e.g. as a foundation of github.com/apocas/dockerode.
+name: "Setup dockerode"
+description: setup Docker and Nodejs environment, e.g. as a foundation of github.com/apocas/dockerode.
 runs:
   using: "composite"
   steps:
     - uses: actions/setup-node@main
       with:
         check-latest: true
+        node-version: lts/*
     - uses: ScribeMD/rootless-docker@main
       name: Use Docker in rootless mode.
     - uses: actions/checkout@main

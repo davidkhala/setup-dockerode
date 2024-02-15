@@ -1,4 +1,4 @@
-# setup-dockerode
+# Setup dockerode
 Setup docker and nodejs
 
 It

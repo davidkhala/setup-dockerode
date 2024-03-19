@@ -9,4 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: davidkhala/setup-dockerode@main
+      - run: docker context list
       - run: docker context inspect default

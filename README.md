@@ -4,13 +4,13 @@ Setup docker and nodejs
 It
 - always uses latest available version of LTS
 
-## INSTALLATION
-Copy and paste the following snippet into your .yml file.
+## Usage
+
 ```
-              - name: Setup dockerode
-                uses: davidkhala/setup-dockerode@main
+  - name: Setup dockerode
+    uses: davidkhala/setup-dockerode@main
             
 ```
 
 # Known issues
-- Support `ubuntu-latest` only (due to ScribeMD/rootless-docker limited suport)
+- Support `ubuntu-22.04` only (due to ScribeMD/rootless-docker limited suport)

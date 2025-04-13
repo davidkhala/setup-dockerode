@@ -1,7 +1,6 @@
-
 branding:
-  icon: 'anchor'
-  color: 'green'
+  icon: "anchor"
+  color: "green"
 name: "Setup dockerode"
 description: setup Docker and Nodejs environment, e.g. as a foundation of github.com/apocas/dockerode.
 runs:
@@ -11,8 +10,10 @@ runs:
       with:
         check-latest: true
         node-version: lts/*
-    - uses: davidkhala/rootless-docker@main
-      name: Use Docker in rootless mode.
+    - if: runner.os == 'Linux'
+      uses: docker/setup-docker-action@master
+      with:
+        rootless: true
+    - if: runner.os == 'macOS'
+      uses: douglascamata/setup-docker-macos-action@main
     - uses: actions/checkout@main
-    
-    

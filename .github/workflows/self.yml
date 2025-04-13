@@ -1,0 +1,18 @@
+name: self test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-13] # macos-latest it not ready
+    runs-on: ${{matrix.os}}
+    steps:
+    - uses: actions/checkout@main
+    - uses: ./
+    - run: docker ps
+    - run: docker context ls

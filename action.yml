@@ -3,6 +3,11 @@ branding:
   color: "green"
 name: "Setup dockerode"
 description: setup Docker and Nodejs environment, e.g. as a foundation of github.com/apocas/dockerode.
+inputs:
+  action-provider:
+    description: "Github Action provider"
+    required: false
+    default: "davidkhala"
 runs:
   using: "composite"
   steps:
@@ -10,10 +15,14 @@ runs:
       with:
         check-latest: true
         node-version: lts/*
-    - if: runner.os == 'Linux'
+    - if: runner.os == 'Linux' && inputs.action-provider == 'docker'
       uses: docker/setup-docker-action@master
       with:
         rootless: true
+        set-host: true
+        context: rootless
+    - if: runner.os == 'Linux' && inputs.action-provider == 'davidkhala'
+      uses: davidkhala/rootless-docker@main
     - if: runner.os == 'macOS'
       uses: douglascamata/setup-docker-macos-action@main
     - uses: actions/checkout@main

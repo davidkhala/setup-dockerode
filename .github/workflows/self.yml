@@ -16,4 +16,3 @@ jobs:
     - uses: ./
     - run: docker ps
     - run: docker context ls
-    - run: echo ${{env.DOCKER_HOST}}

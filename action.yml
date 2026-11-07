@@ -29,6 +29,11 @@ runs:
         context: rootless
     - if: runner.os == 'Linux' && inputs.action-provider == 'davidkhala'
       uses: davidkhala/rootless-docker@main
+    - name: ensure Docker engine is running (Windows)
+      if: runner.os == 'Windows'
+      shell: pwsh
+      run: |
+        if ((Get-Service docker).Status -ne 'Running') { Start-Service docker }
     - if: runner.os == 'macOS'
       uses: douglascamata/setup-docker-macos-action@main
     - if: inputs.username != ''
